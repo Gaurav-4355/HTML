@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Registration Form</title>
+  <style>
+    /* Simple responsive, accessible styling */
+    :root{
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --accent:#2b6cb0;
+      --muted:#666;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    body{
+      margin:0;
+      background:linear-gradient(180deg, var(--bg), #eef3fb);
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px;
+    }
+    .card{
+      background:var(--card);
+      width:100%;
+      max-width:800px;
+      border-radius:12px;
+      box-shadow:0 8px 30px rgba(20,30,60,0.08);
+      padding:28px;
+    }
+    h1{ margin:0 0 6px 0; font-size:1.5rem; }
+    p.lead{ margin:0 0 18px 0; color:var(--muted); font-size:0.95rem; }
+
+    form {
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:16px;
+      align-items:start;
+    }
+
+    @media (max-width:720px){
+      form{ grid-template-columns:1fr; }
+    }
+
+    label{ display:block; font-weight:600; margin-bottom:6px; font-size:0.95rem; }
+    .input, select, textarea{
+      width:100%;
+      box-sizing:border-box;
+      padding:10px 12px;
+      border:1px solid #d8e0ec;
+      border-radius:8px;
+      font-size:0.95rem;
+      background:white;
+    }
+    .small { font-size:0.85rem; color:var(--muted); margin-top:6px; }
+
+    .full { grid-column: 1 / -1; }
+    .row { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+
+    fieldset {
+      border:1px solid #eef3fb;
+      padding:12px;
+      border-radius:8px;
+    }
+    legend { font-weight:700; font-size:0.95rem; }
+
+    .actions { display:flex; gap:12px; justify-content:flex-end; margin-top:8px; grid-column:1/-1; }
+    button {
+      background:var(--accent);
+      color:white;
+      padding:10px 16px;
+      border:none;
+      border-radius:8px;
+      font-weight:700;
+      cursor:pointer;
+    }
+    button[disabled]{ opacity:0.6; cursor:not-allowed; }
+
+    .error {
+      color:#a00;
+      font-size:0.9rem;
+      margin-top:6px;
+    }
+    .regHeading{
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .actions{
+        text-align: center;
+        margin-top: 20px;
+        grid-column: 1 / -1;
+    }
+
+    .hint { font-size:0.85rem; color:#444; margin-top:6px; }
+  </style>
+</head>
+<body>
+  <main class="card" aria-labelledby="regHeading">
+    <h1 id="regHeading">REGISTRATION FORM</FORM></h1>
+   
+
+    
+      <!-- Name -->
+      <div>
+        <label for="firstName">First name <span aria-hidden="true" style="color:#a00;">*</span></label>
+        <input id="firstName" name="firstName" class="input" type="text" required minlength="2" placeholder="GAURAV" />
+        <div class="small" id="firstNameHelp">Your given name</div>
+      </div>
+
+      <div>
+        <label for="lastName">Last name</label>
+        <input id="lastName" name="lastName" class="input" type="text"/>
+      </div>
+      <!--father name-->
+        <div>
+            <label for="fatherName">Father's Name <span aria-hidden="true" style="color:#a00;">*</span></label>
+            <input id="fatherName" name="fatherName" class="input" type="text" required minlength="2" />
+            </div>
+            <!--mother name-->
+            <div>
+                <label for="motherName"> MOTHER NAME<span aria-hidden="true" style="color:#a00;">*</span></label>
+                <input id="motherName" name="motherName" class="input" type="text" required minlength="2" />
+      <!-- Email -->
+
+      <div>
+        <label for="email">Email address <span aria-hidden="true" style="color:#a00;">*</span></label>
+        <input id="email" name="email" class="input" type="email" required placeholder="you@example.com" aria-describedby="emailHelp" />
+        <div id="emailHelp" class="small">We'll send confirmation & important updates to this address.</div>
+      </div>
+
+      <!-- Phone -->
+      <div>
+        <label for="phone">Phone</label>
+        <input id="phone" name="phone" class="input" type="tel" pattern="^\+?[0-9\s\-]{7,20}$" placeholder="+91 98xxxxxxx" />
+        <div class="small">Optional — international format recommended.</div>
+      </div>
+
+      
+  
+
+      
+
+      <!-- DOB -->
+      <div>
+        <label for="dob">Date of birth</label>
+        <input id="dob" name="dob" class="input" type="date" />
+        <div class="small">Optional — helps personalize your account.</div>
+      </div>
+
+      <!-- Gender -->
+      <fieldset class="full" aria-describedby="genderHelp">
+        <legend>Gender (optional)</legend>
+        <div class="row">
+          <label><input type="radio" name="gender" value="female" /> Female</label>
+          <label><input type="radio" name="gender" value="male" /> Male</label>
+          <label><input type="radio" name="gender" value="other" /> Other</label>
+         
+        </div>
+        <div id="genderHelp" class="small">Choose if you want to share this.</div>
+      </fieldset>
+
+      <!-- Interests -->
+      <fieldset class="full">
+        <legend>Interests</legend>
+        <div class="row">
+          <label><input type="checkbox" name="interests" value="news" /> News</label>
+          <label><input type="checkbox" name="interests" value="events" /> Events</label>
+          <label><input type="checkbox" name="interests" value="product" /> Product updates</label>
+        </div>
+      </fieldset>
+
+      <!-- Country -->
+      <div>
+        <label for="country">Country</label>
+        <select id="country" name="country" class="input">
+          <option value="">Select country</option>
+          <option>India</option>
+          <option>United States</option>
+          <option>United Kingdom</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <!-- Terms -->
+      
+
+      <!-- Actions -->
+       <!--submit-->
+        <div class="actions">
+            <button type="submit" id="submitBtn">SUBMIT</button>
+    </form>
+  </main>
+</body>
+</html>
